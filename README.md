@@ -8,7 +8,7 @@
 | Dictionary |
 | Numbers |
 | List |
-| Struct and Class (using Attribute BPObject) |
+| Struct and Class (using Attribute BPObject and BPField) |
 | String |
 | Char |
 | Boolean |
@@ -37,6 +37,33 @@ static void Main(string[] args)
   var result = BytePackerConvert.DeserializeObject<int>(bp);
   Console.WriteLine(result);
   // 1
+  Console.ReadKey();
+}
+```
+- Serialzie Struct
+```cs
+[BPObject]
+struct Game
+ {
+  [BPField]
+  public int level;
+  [BPField]
+  public int xp;
+  [BPField]
+  public string username;
+  public override string ToString()
+  {
+    return "Level: " + level + " XP: "+ xp + " Username: "+username;
+  }
+}
+static void Main(string[] args)
+{
+  var UserInfo = new User() { xp =2,username = "29",level = 10};
+  var result = BytePackerConvert.SerializeObject(UserInfo);
+  Console.WriteLine(result);
+  /*
+  3A 00 00 00 05 00 00 00 6C 00 65 00 76 00 65 00 6C 00 0A 00 00 00 02 00 00 00 78 00 70 00 02 00 00 00 08 00 00 00 75 00 73 00 65 00 72 00 6E 00 61 00 6D 00 65 00 02 00 00 00 32 00 39 00
+  */
   Console.ReadKey();
 }
 ```
