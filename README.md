@@ -1,7 +1,8 @@
 # Byte-Packer
 
-## Support
-| Tipos |
+## Types support
+
+| Types |
 | ------------------- |
 | Array |
 | Dictionary |
