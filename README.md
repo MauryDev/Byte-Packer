@@ -67,6 +67,7 @@ static void Main(string[] args)
   Console.ReadKey();
 }
 ```
+- Deserialzie Struct
 ```cs
 [BPObject]
 struct Game
