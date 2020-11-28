@@ -67,3 +67,28 @@ static void Main(string[] args)
   Console.ReadKey();
 }
 ```
+```cs
+[BPObject]
+struct Game
+ {
+  [BPField]
+  public int level;
+  [BPField]
+  public int xp;
+  [BPField]
+  public string username;
+  public override string ToString()
+  {
+    return "Level: " + level + " XP: "+ xp + " Username: "+username;
+  }
+}
+static void Main(string[] args)
+{
+  var UserInfo = new User() { xp =2,username = "29",level = 10};
+  var bp = BytePackerConvert.SerializeObject(UserInfo);
+  var value = BytePackerConvert.DeserializeObject<User>(bp);
+  Console.WriteLine(value);
+  // Level: 10 XP: 2 Username: 29
+  Console.ReadKey();
+}
+```
