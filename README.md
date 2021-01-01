@@ -17,7 +17,7 @@
 
 ## Examples
 
-- Serialzie Array
+- Serialize Array
 ```cs
 static void Main(string[] args)
 {
