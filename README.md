@@ -67,7 +67,7 @@ static void Main(string[] args)
   Console.ReadKey();
 }
 ```
-- Deserialzie Struct
+- Deserialize Struct
 ```cs
 [BPObject]
 struct Game
@@ -90,6 +90,25 @@ static void Main(string[] args)
   var value = BytePackerConvert.DeserializeObject<User>(bp);
   Console.WriteLine(value);
   // Level: 10 XP: 2 Username: 29
+  Console.ReadKey();
+}
+```
+- Encrypt BytePacker
+```cs
+static void Main(string[] args)
+{
+  var bp = BytePackerConvert.SerializeObject(232);
+  File.WriteAllBytes("bin.bp",bp.Encrypt("232").ToArray());
+  
+  Console.ReadKey();
+}
+```
+- Decrypt BytePacker
+```cs
+static void Main(string[] args)
+{
+  var bp = new BytePacker(File.ReadAllBytes("bin.bp"));
+  var bp_decrypt = bp.Decrypt("232");
   Console.ReadKey();
 }
 ```
